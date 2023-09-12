@@ -1,0 +1,21 @@
+[user]
+	email = boo@womp.com
+	name = A-aron
+	signingkey = NOT_A_SIGNING_KEY
+[credential]
+	helper = store
+
+[alias]
+	x = "!f() { git add -u && git commit -m \"$@\" && git push; }; f"
+	amend="git commit --amend -m"
+	yeet = push
+	yoink = pull
+	l = log --pretty=\"%C(Yellow)%h %<(10)%C(reset)%as %><(14)[%C(Green)%cr%C(reset)]%x09  %<(16)%C(Cyan)%an %C(reset)%s\"
+[core]
+	excludesfile = ~/.gitignore
+	editor = nvim
+
+[init]
+	defaultBranch = main
+[diff]
+	submodule = log
