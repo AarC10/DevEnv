@@ -4,19 +4,8 @@
 if command -v zsh >/dev/null 2>&1; then
     echo "Zsh is already installed."
 else
-    # Determine the package manager based on available commands
-    if command -v apt-get >/dev/null 2>&1; then
-        package_manager="apt-get"
-    elif command -v dnf >/dev/null 2>&1; then
-        package_manager="dnf"
-    elif command -v yum >/dev/null 2>&1; then
-        package_manager="yum"
-    elif command -v pacman >/dev/null 2>&1; then
-        package_manager="pacman"
-    else
-        echo "bad pacman"
-        exit 1
-    fi
+    . ../get_pacman.sh
+
 
     case "$package_manager" in
         "apt")

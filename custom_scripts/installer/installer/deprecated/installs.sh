@@ -1,0 +1,140 @@
+sudo apt install curl wget
+sudo apt install build-essential git python3.10-dev cargo cowsay fortune wireshark 
+curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client
+sudo apt install github-cli
+sudo apt install timeshift
+sudo apt install neofetch cmatrix
+sudo apt install tar
+sudo apt install mailcap
+sudo apt install lxqt-sudo
+sudo apt-get install -y gnome-keyring
+sudo apt install tlp
+sudo systemctl enable tlp.service
+sudo apt install lm-sensors
+sudo apt install vim
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install gh
+sudo apt install cmake
+sudo apt install libtiff5-dev
+sudo apt install lightly-qt
+sudo apt install build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev extra-cmake-modules libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libkf5iconthemes-dev gettext qt3d5-dev
+sudo apt install sl
+sudo apt install openocd
+sudo apt install pip
+sudo apt install pip3.10
+sudo apt install trello
+sudo apt install npm yarn
+sudo apt install mpio
+sudo apt install mpi
+sudo apt install graphviz
+sudo apt install wine
+sudo apt install $(check-language-support)
+sudo apt install $(check-language-support)
+sudo apt install trello
+sudo apt install python3.10-dev
+sudo apt install python3-dev
+sudo apt install python3-dev
+sudo apt install python2.7-dev
+sudo apt install python3-devel
+sudo apt install openocd
+sudo apt install trello-desktop
+sudo apt install cmake gcc g++
+sudo apt install arduino
+sudo apt install screen
+sudo apt install mpicc
+sudo apt install mpich
+
+
+sudo apt install curl
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"\n\n# or using `curl`\n\ncurl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py\npython3 get-platformio.py\n\n# or using `wget`\n\nwget https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -O get-platformio.py\npython3 get-platformio.py
+python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"\n\n# or using `curl`\n\ncurl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py\npython3 get-platformio.py\n\n# or using `wget`\n\nwget https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -O get-platformio.py\npython3 get-platformio.py
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh 
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \\n  chmod 755 msfinstall && \\n  ./msfinstall
+sudo apt-get install imagemagick
+sudo apt install lightly-qt
+sudo apt install build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev extra-cmake-modules libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libkf5iconthemes-dev gettext qt3d5-dev
+sudo apt install sl
+sudo apt install openocd
+sudo apt install pip
+sudo apt install pip3.10
+sudo apt install npm yarn
+sudo apt install mpio
+sudo apt install mpi
+sudo apt install graphviz
+sudo apt install wine
+sudo apt install $(check-language-support)
+sudo apt install $(check-language-support)
+sudo apt install trello
+sudo apt install python3.10-dev
+sudo apt install python3-dev
+sudo apt install python3-dev
+sudo apt install python2.7-dev
+sudo apt install qt5-default
+sudo apt install qt5
+sudo apt install build-essential
+sudo apt install qtcreator
+sudo apt install qt5-default
+sudo apt install qt6-default
+sudo apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+sudo apt install libgl1-mesa-dev
+sudo apt install qt5-default
+sudo apt install openocd
+sudo apt install trello-desktop
+sudo apt install cmake gcc g++
+sudo apt upgrade
+sudo apt install arduino
+sudo apt install -y appmenu-gtk-module-common
+sudo apt install screen
+sudo apt install mpicc
+sudo apt install mpich
+sudo apt install lolcat
+sudo apt install teensyduino
+sudo apt install vim
+sudo apt install flatpak -y
+sudo apt install valgrind
+sudo apt install gdbserver
+sudo apt-get install ttf-mscorefonts-installer
+sudo apt install mysql-server
+sudo apt install php-mysql
+sudo apt install asciiquarium
+sudo apt install clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev\n
+sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo apt install ./seggerjlink-udev-rules-xxxx-linux-all.deb ./st-stlink-udev-rules-xxxx-linux-all.deb ./ststlink-server-xxxx-linux-amd64.deb ./st-stm32cubeide_xxxx_amd64.deb
+sudo apt install clang-format
+sudo apt install telnet
+sudo apt install xdg-utils
+sudo apt install xdg-desktop-portal-gtk 
+sudo apt install xdg-desktop-portal-kde
+sudo apt install xdg-desktop-portal-*
+sudo apt update && sudo apt upgrade
+sudo apt install ifconfig
+sudo apt install influx
+sudo apt install influxdb
+sudo apt install yarn
+sudo apt update
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
+sudo apt upgrade
+sudo apt install yarn
+sudo add-apt-repository ppa:ytvwld/asciiquarium\nsudo apt update && sudo apt install asciiquarium
+sudo apt-get update && sudo apt-get install asciiquarium
+sudo apt install xclip
+sudo apt install docker
+sudo apt install -y apt-transport-https
+sudo apt install -y software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -\n
+sudo apt-get update
+sudo apt-get install grafana
+sudo apt install maven
+sudo apt-get install laptop-mode-tools
+sudo apt install sdkmanager
+sudo apt install angular
+sudo apt install python3-devel
+sudo apt install metasploit
+sudo apt update && sudo apt upgrade
