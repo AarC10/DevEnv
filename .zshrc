@@ -115,6 +115,7 @@ alias javaswitch="sudo update-alternatives --config java"
 alias nitron="ssh amc9897@nitron.se.rit.edu"
 alias glados="ssh amc9897@glados.cs.rit.edu"
 alias kinks="ssh amc9897@kinks.cs.rit.edu"
+alias dsl="ssh amc9897@dsl.cs.rit.edu" # Distributed Systems Lab
 alias ngafid_server="ssh aaron@ngafidbeta.rit.edu"
 alias ngafid="cd ~/Documents/d2s2/ngafid2.0"
 alias sshrig="ssh aaron@NICE_TRY" 
