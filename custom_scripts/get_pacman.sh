@@ -1,4 +1,10 @@
 #!/bin/sh
+#
+# Script Name: get_pacman
+#
+# Author: Aaron Chan
+#
+# Description: Determine Linux package manager for easier platform independent install
 
 if command -v apt-get >/dev/null 2>&1; then
     PACKAGE_MANAGER="apt"

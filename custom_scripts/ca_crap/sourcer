@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# Script Name: sourcer
+#
+# Author: Aaron Chan
+#
+# Description: Ez setup so(u)rcery. Just do a "source (PATH TO THIS FILE)" in your .bashrc/.zshrc/etc
+# Add your list of repos to repo_list. Make sure there is a newline at the end of the file or the last repo won't be read and cloned.
+
+CA_TOOLS_DIR="/home/aaron/Documents/GitHub/DevEnv/custom_scripts/ca_crap" # Only change this line
+export PATH="$PATH:$CA_TOOLS_DIR"
+export CA_TOOLS_REPO_LIST="$CA_TOOLS_DIR/repo_list"

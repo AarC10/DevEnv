@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Script Name: cloner
+#
+# Author: Aaron Chan
+#
+# Description: Clones all repos found in repo_list file concurrently
+
+while read repo; do
+    git clone "$repo" &
+done < $CA_TOOLS_REPO_LIST
+wait
+echo "" # You're going to think its stuck without this lol

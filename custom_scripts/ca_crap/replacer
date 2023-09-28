@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Script Name: replacer
+#
+# Author: Tess Hacker
+#
+# Description: Replaces unit number in repo_list file
+
+
+echo "Unit Number: "
+read unit_number
+
+sed -i -r "s/unit../unit$unit_number/g" $CA_TOOLS_REPO_LIST

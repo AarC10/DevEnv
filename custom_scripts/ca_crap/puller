@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Script Name: puller
+#
+# Author: Aaron Chan
+#
+# Description: Recursively pulls all repos found in child directories of current directory
+# Please don't bother trying to interpret this for your mental sanity. Still recovering from this bad larry for more than a year now
+find . -type d -name '.git' -print0 | xargs -P 40 -n 1 -0 -I '{}' sh -c "cd \"{}\"/../ && git pull && pwd && echo '-------------------- \n ' " \ ;

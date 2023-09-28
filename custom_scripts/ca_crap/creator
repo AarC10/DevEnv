@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+# Script Name: creator
+#
+# Author: Aaron Chan
+#
+# Description: Got bored and made this to set up an entire unit/practicum.
+# If no flag is specified, create folders (CW, HW1, HW2, MP) and clone repos into each folder.
+# If the -p flag is specified, just clone repos into the newly created directory.
+
+unit_number=""
+single_flag=""
+
+if [ "$1" == "-s" ]; then
+  single_flag="true"
+  if [ -z "$2" ]; then
+    echo -n "Unit Number: "
+    read unit_number
+  else
+    unit_number="$2"
+  fi
+else
+  if [ -z "$1" ]; then
+    echo -n "Unit Number: "
+    read unit_number
+  else
+    unit_number="$1"
+  fi
+fi
+
+if [ -z "$unit_number" ]; then
+  echo "No unit number entered."
+  exit 1
+fi
+
+
+echo $unit_number | replacer >> /dev/null
+
+
+mkdir unit"$unit_number"
+cd unit"$unit_number"
+
+if [ "$single_flag" == "true" ]; then
+  cloner
+else
+  mkdir CW
+  cd CW
+  cloner
+  cd ..
+
+  cp -r CW HW1
+  cp -r CW HW2
+  cp -r CW MP
+fi

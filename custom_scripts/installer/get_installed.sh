@@ -1,4 +1,10 @@
 #!/bin/sh
+#
+# Script Name: get_installed
+#
+# Author: Aaron Chan
+#
+# Description: Yoink all installed packages
 
 . ../get_pacman.sh
 

@@ -1,2 +1,0 @@
-find . -type d -name '.git' -print0 | xargs -P 40 -n 1 -0 -I '{}' sh -c "cd \"{}\"/../ && git pull && pwd && echo '-------------------- \n ' " \ ;
-
