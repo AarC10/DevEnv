@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Script Name: cherry_picker
+#
+# Author: Aaron Chan
+#
+# Description: Cherry picks commits automatically in order
+
+# TODO: Make this arguments
+git log --author="Aaron Chan" --after "01/05/2024" --oneline --reverse --pretty=format:"%h" >> cherries
+
+check_conflicts() {
+    if git status | grep "You have unmerged paths" &> /dev/null; then
+        echo "Merge conflicts detected. Pausing..."
+        exit 1
+    fi
+}
+
+while IFS= read -r commit_hash; do
+    echo "Cherry-picking commit: $commit_hash"
+    git cherry-pick "$commit_hash"
+    # TODO: Wipe each line so we in case we exit because of conflicts
+    check_conflicts
+    
+
+    git commit --no-edit
+done < cherries
+
+echo "Finished cherry picking!"
+
