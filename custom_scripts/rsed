@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <replacee> <replacement>"
+    exit 1
+fi
+
+replacee="$1"
+replacement="$2"
+
+grep -rl "$replacee" . | xargs sed -i "s/$replacee/$replacement/g"
+
