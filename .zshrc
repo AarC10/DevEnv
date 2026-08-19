@@ -62,7 +62,7 @@ npx()  { __load_nvm; npx  "$@"; }
 # function keyed on $PWD once project-specific env vars exist.
 
 # ---------- zoxide (smarter cd) ----------
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+command -v zoxide >/dev/null && eval "$(zoxide init zsh --cmd cd)"
 
 # ---------- Aliases last (must be silent for p10k instant prompt) ----------
 [[ -r "$HOME/.aliases" ]] && source "$HOME/.aliases"

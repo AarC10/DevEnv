@@ -81,6 +81,16 @@ instead for now - swap back if the submodule gets some attention.
 
 ## KDE
 
+`kde/plasma-layout-snapshot.js` is a `dumpCurrentLayoutJS` capture of the
+panel layout, replayed by `scripts/fedora/kde-layout.sh` via
+`plasma.loadSerializedLayout()` - restores exactly what was live when taken,
+not rebuilt from scratch. Re-take it after tuning the layout by hand and
+wanting that as the new baseline:
+
+```sh
+qdbus-qt6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.dumpCurrentLayoutJS > kde/plasma-layout-snapshot.js
+```
+
 `kde/kdeglobals` and `kde/MainUbuntu.layout.latte` are reference copies from
 a prior machine, not applied anywhere. The Latte layout's there in case
 Latte Dock ever makes it to Fedora/Flathub - not packaged there right now.

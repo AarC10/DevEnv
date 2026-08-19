@@ -11,7 +11,7 @@ if command -v eza >/dev/null; then
   alias t="eza --tree --header --classify --icons --group-directories-first"
 fi
 
-command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
+command -v zoxide >/dev/null && eval "$(zoxide init zsh --cmd cd)"
 
 # Ubuntu's apt fzf predates the `fzf --zsh` flag (added in 0.48) - use the
 # Debian-packaged integration scripts instead, fall back to --zsh if a newer

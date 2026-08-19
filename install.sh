@@ -43,11 +43,14 @@ run scripts/common/embedded-pip.sh
 run scripts/common/zshrc.sh
 run scripts/common/repos.sh
 run scripts/fedora/grub-theme.sh
-run scripts/fedora/kde-layout.sh
 
 echo -e "\n### Done. Log out and back in (or reboot) to pick up: default shell, docker group, dialout group."
 echo "Not run above, do these yourself if wanted:"
 echo "  - scripts/common/esp-idf.sh, android-studio.sh, scripts/fedora/spicetify.sh (bigger/optional)"
+echo "  - scripts/fedora/kde-layout.sh: NOT run automatically - it restores the"
+echo "    panel layout from kde/plasma-layout-snapshot.js, which will not match"
+echo "    whatever you've tuned by hand since that snapshot was taken. Re-take"
+echo "    the snapshot before running this if you want the current state kept."
 echo "  - JetBrains IDEs: install through the Toolbox GUI, no scripted path for that part"
 echo "  - SEGGER J-Link: https://www.segger.com/downloads/jlink/ (license-gated)"
 echo "  - STM32CubeProgrammer/CubeMX: https://www.st.com/en/development-tools/ (free ST account)"

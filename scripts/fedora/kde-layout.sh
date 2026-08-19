@@ -3,11 +3,24 @@
 set -euo pipefail
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../lib/common.sh"
 
-log "Applying Plasma panel layout + KWin window button order"
-# Uses plasmashell's D-Bus scripting API. org.kde.plasma.appmenu and
-# org.kde.plasma.panelspacer are both broken on this Fedora build (Qt ABI
-# mismatch, a packaging bug not a local issue) so this avoids them - no
-# global menu bar, spacing done via panel alignment instead of a spacer.
+log "Restoring Plasma panel layout from snapshot + KWin window button order"
+# kde/plasma-layout-snapshot.js is a straight `dumpCurrentLayoutJS` capture,
+# replayed via `plasma.loadSerializedLayout()` - restores exactly what was
+# live when it was taken, not a hand-built layout.
+#
+# History: the original version of this script built the layout from
+# scratch each run (new Panel, addWidget, ...), working around org.kde.
+# plasma.appmenu/panelspacer being broken (Qt ABI mismatch, a Fedora
+# packaging bug). That rebuild-from-scratch approach ended up clobbering
+# layout changes made by hand after the fact - this snapshot/replay version
+# avoids that by only ever restoring a deliberately-taken snapshot. Re-take
+# one with `qdbus-qt6 org.kde.plasmashell /PlasmaShell
+# org.kde.PlasmaShell.dumpCurrentLayoutJS > kde/plasma-layout-snapshot.js`
+# after you've tuned things by hand and want the new state as the baseline.
+#
+# The broken native panelspacer is moot now anyway - current layout uses
+# luisbocanegra.panelspacer.extended (a QML community widget, sidesteps the
+# native plugin's Qt ABI issue entirely).
 #
 # If panels vanish after running this (plasmashell can exit without
 # restarting on a config reload): nohup /usr/bin/plasmashell >/dev/null 2>&1 & disown
@@ -21,30 +34,7 @@ if ! qdbus-qt6 org.kde.plasmashell /PlasmaShell &>/dev/null; then
   exit 0
 fi
 
-qdbus-qt6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "
-  var existingPanels = panels();
-  for (var i = 0; i < existingPanels.length; i++) { existingPanels[i].remove(); }
-
-  var topPanel = new Panel;
-  topPanel.location = 'top';
-  topPanel.addWidget('org.kde.plasma.kickoff');
-  topPanel.addWidget('org.kde.plasma.digitalclock');
-  topPanel.addWidget('org.kde.plasma.systemtray');
-  topPanel.alignment = 'center';
-
-  var bottomPanel = new Panel;
-  bottomPanel.location = 'bottom';
-  bottomPanel.lengthMode = 'fit';
-  bottomPanel.alignment = 'center';
-  bottomPanel.height = 56;
-  bottomPanel.hiding = 'autohide';
-  bottomPanel.writeConfig('PanelOpacity', 1);
-
-  var dock = bottomPanel.addWidget('org.kde.plasma.icontasks');
-  dock.currentConfigGroup = ['General'];
-  dock.writeConfig('launchers', 'applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop,preferred://browser,applications:com.spotify.Client.desktop,applications:com.slack.Slack.desktop,applications:com.discordapp.Discord.desktop');
-  dock.reloadConfig();
-"
+qdbus-qt6 org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(cat "$REPO_ROOT/kde/plasma-layout-snapshot.js")"
 
 # Window titlebar buttons: Close, Maximize/Restore, Minimize - on the left.
 # Must be under [org.kde.kdecoration2], NOT [Windows] (easy mistake - that's
