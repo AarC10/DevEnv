@@ -1,15 +1,18 @@
 # DevEnv
 
-Dotfiles and machine setup scripts. Fedora 44 (KDE) on the Framework is the
-current target. Older stuff from prior machines lives in `custom_scripts/`.
+Dotfiles and machine setup scripts. Two machines tracked right now:
+Fedora 44 (KDE) on the Framework (full setup, `install.sh`), and a work
+Ubuntu 24.04 (GNOME) laptop (just the CLI QoL layer, base dev tooling
+already there). Older stuff from prior machines lives in `custom_scripts/`.
 
 ## Layout
 
 ```
-install.sh              run everything below in order
+install.sh              runs the full Fedora setup, in order
 scripts/
   lib/common.sh           shared vars/helpers, sourced by everything else
   fedora/                  dnf5 calls, KDE-specific stuff
+  ubuntu/                   apt calls (currently just the QoL package list)
   common/                   distro-agnostic (cargo, pip, npm, curl installs)
 .zshrc, config/, konsole/, kde/    tracked config files scripts copy into place
 ```
@@ -47,6 +50,28 @@ Tracked here, copied into place by their matching script:
 `config/.gitconfig` is reference only - the real aliases live in
 `git config --global`, and the `user.*` fields here are placeholder junk on
 purpose (this repo's public).
+
+## Work laptop (Ubuntu 24.04, GNOME)
+
+Base dev tooling's already set up there - this is just the CLI QoL layer
+(eza/zoxide/fzf/bat/fd/delta), added on top, not a full install:
+
+```sh
+bash scripts/ubuntu/packages.sh     # eza, zoxide, fzf, fd, bat, ripgrep, delta
+bash scripts/common/git-extras.sh    # git aliases + core.editor
+bash scripts/common/zoxide-delta-config.sh
+bash scripts/common/lazygit.sh
+```
+
+Then add one line to your own `.zshrc` (doesn't overwrite it, unlike the
+Framework's `.zshrc`):
+
+```sh
+source /path/to/DevEnv/config/qol.zsh
+```
+
+No GNOME desktop changes (dock, keybindings, etc.) - deliberately left
+alone on a managed machine.
 
 ## Neovim
 

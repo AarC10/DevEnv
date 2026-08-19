@@ -3,10 +3,9 @@
 set -euo pipefail
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../lib/common.sh"
 
-log "Wiring zoxide into the shell + delta into git"
-# zoxide's shell hook goes directly in the .zshrc heredoc below (see
-# 'zoxide init zsh' line) - this section only handles the git side, which
-# is global config rather than a file template.
+log "Wiring delta into git"
+# zoxide's shell hook lives in .zshrc (Framework) or config/qol.zsh (Ubuntu),
+# not here - this only handles git's global config.
 git config --global core.pager "delta"
 git config --global interactive.diffFilter "delta --color-only"
 git config --global delta.navigate true
