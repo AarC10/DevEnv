@@ -1,0 +1,16 @@
+[Annotations]
+annotationToolType=1
+
+[General]
+launchAction=DoNotTakeScreenshot
+printKeyRunningAction=StartNewInstance
+
+[GuiConfig]
+captureDelay=1
+captureMode=0
+
+[ImageSave]
+translatedScreenshotsFolder=Screenshots
+
+[VideoSave]
+translatedScreencastsFolder=Screencasts

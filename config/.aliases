@@ -1,0 +1,8 @@
+if command -v eza >/dev/null; then
+  alias ls="eza -1 --classify --group-directories-first"
+  alias ll="eza --long --header --classify --icons --group-directories-first --no-permissions"
+  alias lp="eza --long --header --classify --icons --group-directories-first"
+  alias la="eza -a --long --header --classify --icons --group-directories-first"
+  alias lt="eza --tree --long --header --classify --icons --group-directories-first"
+  alias t="eza --tree --header --classify --icons --group-directories-first"
+fi
